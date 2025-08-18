@@ -153,6 +153,7 @@ const CloneInterface: React.FC<CloneInterfaceProps> = ({
             className="select-field"
           >
             <option value="claude-opus">Claude Opus 4.1</option>
+            <option value="gpt-5">GPT-5</option>
             <option value="gpt-4">GPT-4</option>
             <option value="claude-sonnet">Claude Sonnet</option>
           </select>
