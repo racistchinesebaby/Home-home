@@ -1,14 +1,21 @@
+/* AI App Cloner - Inspired by zero365.com aesthetic and structure
+ * Design elements adapted from zero365.com's minimalist dark theme
+ * https://zero365.com - Professional, clean, modern interface design
+ */
+
 .App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #000000;
+  color: #ffffff;
 }
 
 .header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
   padding: 1rem 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #333333;
 }
 
 .header-content {
@@ -56,10 +63,10 @@
 }
 
 .clone-interface {
-  background: white;
+  background: #111111;
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #333333;
 }
 
 .interface-header {
@@ -69,12 +76,15 @@
 
 .interface-header h2 {
   font-size: 2rem;
-  color: #1a202c;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .interface-header p {
-  color: #718096;
+  color: #cccccc;
   font-size: 1.1rem;
 }
 
@@ -92,22 +102,25 @@
 
 .type-btn {
   padding: 0.75rem 1.5rem;
-  border: 2px solid #e2e8f0;
-  background: white;
+  border: 2px solid #333333;
+  background: #000000;
+  color: #ffffff;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .type-btn.active {
-  background: #667eea;
-  color: white;
-  border-color: #667eea;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
 }
 
 .type-btn:hover:not(.active) {
-  border-color: #cbd5e0;
+  border-color: #666666;
 }
 
 .url-input, .file-input, .description-input, .ai-model-selector {
@@ -117,22 +130,27 @@
 .url-input label, .file-input label, .description-input label, .ai-model-selector label {
   display: block;
   font-weight: 600;
-  color: #2d3748;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
 }
 
 .input-field, .file-field, .textarea-field, .select-field {
   width: 100%;
   padding: 0.75rem;
-  border: 2px solid #e2e8f0;
+  border: 2px solid #333333;
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background: #000000;
+  color: #ffffff;
 }
 
 .input-field:focus, .file-field:focus, .textarea-field:focus, .select-field:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #ffffff;
 }
 
 .textarea-field {
@@ -149,30 +167,32 @@
 
 .analyze-btn, .clone-btn {
   padding: 0.75rem 2rem;
-  border: none;
+  border: 2px solid #ffffff;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
   font-size: 1rem;
-}
-
-.analyze-btn {
-  background: #48bb78;
-  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #000000;
+  color: #ffffff;
 }
 
 .analyze-btn:hover:not(:disabled) {
-  background: #38a169;
+  background: #ffffff;
+  color: #000000;
 }
 
 .clone-btn {
-  background: #667eea;
-  color: white;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
 }
 
 .clone-btn:hover:not(:disabled) {
-  background: #5a67d8;
+  background: #000000;
+  color: #ffffff;
 }
 
 .analyze-btn:disabled, .clone-btn:disabled {
@@ -183,15 +203,17 @@
 .analysis-results {
   margin-top: 2rem;
   padding: 2rem;
-  background: #f7fafc;
+  background: #111111;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #333333;
 }
 
 .analysis-results h3 {
-  color: #2d3748;
+  color: #ffffff;
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .result-grid {
@@ -202,26 +224,31 @@
 }
 
 .result-item {
-  background: white;
+  background: #000000;
   padding: 1rem;
   border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #333333;
 }
 
 .result-item strong {
-  color: #2d3748;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
 }
 
 .recommendations {
-  background: white;
+  background: #000000;
   padding: 1.5rem;
   border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #333333;
 }
 
 .recommendations h4 {
-  color: #2d3748;
+  color: #ffffff;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .recommendations ul {
@@ -231,8 +258,8 @@
 
 .recommendations li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #f1f5f9;
-  color: #4a5568;
+  border-bottom: 1px solid #333333;
+  color: #cccccc;
 }
 
 .recommendations li:last-child {
@@ -241,22 +268,22 @@
 
 .recommendations li:before {
   content: "✓";
-  color: #48bb78;
+  color: #ffffff;
   font-weight: bold;
   margin-right: 0.5rem;
 }
 
 .project-view {
-  background: white;
+  background: #111111;
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #333333;
 }
 
 .no-project {
   text-align: center;
   padding: 4rem 2rem;
-  color: #718096;
+  color: #cccccc;
 }
 
 .project-header {
@@ -265,12 +292,14 @@
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #333333;
 }
 
 .project-header h2 {
-  color: #2d3748;
+  color: #ffffff;
   font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .status-badge {
@@ -309,14 +338,17 @@
 }
 
 .detail-item {
-  background: #f7fafc;
+  background: #000000;
   padding: 1rem;
   border-radius: 6px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #333333;
 }
 
 .detail-item strong {
-  color: #2d3748;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
 }
 
 .project-files {
@@ -324,9 +356,11 @@
 }
 
 .project-files h3 {
-  color: #2d3748;
+  color: #ffffff;
   margin-bottom: 1rem;
   font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .file-list {
@@ -336,29 +370,31 @@
 }
 
 .file-item {
-  background: #f7fafc;
-  border: 1px solid #e2e8f0;
+  background: #111111;
+  border: 1px solid #333333;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .file-name {
-  background: #2d3748;
+  background: #000000;
   color: white;
   padding: 0.75rem 1rem;
   font-weight: 600;
   font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .file-content {
   padding: 1rem;
-  background: white;
+  background: #111111;
   font-family: 'Courier New', monospace;
   font-size: 0.875rem;
   line-height: 1.5;
   overflow-x: auto;
   white-space: pre-wrap;
-  color: #2d3748;
+  color: #cccccc;
 }
 
 @media (max-width: 768px) {
