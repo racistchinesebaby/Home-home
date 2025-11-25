@@ -134,7 +134,7 @@ Your personality: Strategic, analytical, patient, and continuously improving.`,
       analyzePerformance: (params) => this.analyzePerformance(params.appId),
       compareStrategies: (params) => this.compareStrategies(params.appId, params.strategies),
       learnFromHistory: () => this.learnFromHistory(),
-      getTuningProfile: (params) => this.getTuningProfile(params.appId),
+      getTuningProfile: async (params) => this.getTuningProfile(params.appId),
       suggestTuning: (params) => this.suggestTuning(params.appId),
     };
 

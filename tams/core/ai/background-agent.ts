@@ -121,7 +121,7 @@ You work silently in the background, only surfacing critical information.`,
       optimizeApp: (params) => this.optimizeApp(params.appId),
       healApp: (params) => this.healApp(params.appId),
       analyzeSystem: () => this.analyzeSystem(),
-      getTasks: () => this.getAllTasks(),
+      getTasks: async () => this.getAllTasks(),
       addTask: (params) => this.addTask(params),
     };
 
