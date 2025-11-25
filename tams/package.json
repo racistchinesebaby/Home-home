@@ -9,6 +9,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node cli/index.ts",
+    "web": "ts-node start-web.ts",
     "start": "node dist/cli/index.js",
     "watch": "tsc --watch",
     "test": "jest",
