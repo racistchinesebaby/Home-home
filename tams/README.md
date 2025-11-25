@@ -2,17 +2,27 @@
 
 **Self-Replicating AI-Powered App Management Platform**
 
-TAMS is a revolutionary terminal-based app management system that allows you to create, manage, and optimize applications that can self-replicate, auto-tune, and solve problems in the background using AI.
+TAMS is a revolutionary terminal-based app management system that allows you to create, manage, and optimize applications that can self-replicate, auto-tune, and solve problems in the background using **three specialized AI assistants** working together.
+
+## 🤖 Three AI Personalities
+
+**Gemini AI** (Gemini 3.0 Pro) - Your conversational assistant
+**Background Agent AI** (Claude Sonnet 4.5) - Autonomous automation
+**Meta-Tuner AI** (Claude Opus 4.1) - Strategic optimization
+
+[→ See AI_GUIDE.md for complete AI documentation](./AI_GUIDE.md)
 
 ## 🌟 Features
 
 ### Core Capabilities
 - **🧬 Self-Replicating Apps** - Apps can clone themselves with modifications
-- **🤖 AI-Powered Optimization** - Background agent automatically tunes and optimizes apps
+- **🤖 Three AI Assistants** - Gemini, Background Agent, and Meta-Tuner working together
+- **🧠 Collaborative Intelligence** - AIs communicate and make collective decisions
 - **🏪 App Store Marketplace** - Built-in marketplace for app templates and integrations
-- **🎛️ Auto-Tuning System** - AI analyzes and optimizes app configurations
-- **🔄 Background Problem Solving** - Automated monitoring, healing, and updates
+- **🎛️ AI-Powered Tuning** - Meta-Tuner learns and optimizes over time
+- **🔄 Autonomous Monitoring** - Background Agent watches and fixes issues 24/7
 - **📦 Modular Architecture** - Plugin system for custom app types
+- **💬 Natural Language Control** - Chat with AIs to manage your apps
 
 ### App Types
 
@@ -74,7 +84,22 @@ tams
 
 #### View System Status
 ```bash
-status
+status  # Shows apps, AI assistants, agent status, etc.
+```
+
+#### AI Commands
+```bash
+# Chat with Gemini AI
+gemini "How do I create a trading bot?"
+
+# Check Background Agent
+agent status
+
+# Optimize with Meta-Tuner
+tuner "Optimize my app" --app app_123
+
+# Ask all AIs (collaborative)
+ask "Should I deploy this app?" --app app_123
 ```
 
 #### List All Apps
