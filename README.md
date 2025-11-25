@@ -1,28 +1,56 @@
-# AI App Cloner
+# Sierra Chart Mobile
 
-An AI-powered application cloning tool similar to Replit, built with React and Node.js.
-
-## Design Attribution
-
-This project's aesthetic and structure are inspired by [zero365.com](https://zero365.com), incorporating their minimalist dark theme, clean typography, and professional interface design patterns.
+A professional mobile trading platform inspired by Sierra Chart, built with React and TypeScript. Features real-time charting, technical analysis, and multi-asset trading capabilities.
 
 ## Features
 
-- **URL Analysis**: Analyze any web application by providing its URL
-- **File Upload**: Upload application files for analysis
-- **AI-Powered Cloning**: Generate clones using advanced AI models
-- **Multiple AI Models**: Support for Claude Opus 4.1, GPT-5, GPT-4, and Claude Sonnet
-- **Mobile Responsive**: Works seamlessly on all devices
-- **Real-time Analysis**: Get instant feedback on application structure
-- **Dark Theme**: Professional dark interface inspired by zero365.com
+### Real-Time Charting
+- **Multiple Chart Types**: Candlestick, Line, and Area charts
+- **Technical Indicators**:
+  - Simple Moving Average (SMA 20, SMA 50)
+  - Exponential Moving Average (EMA 12)
+  - Bollinger Bands
+  - RSI (Relative Strength Index)
+  - MACD (Moving Average Convergence Divergence)
+- **Timeframes**: 1m, 5m, 15m, 1h, 4h, 1d, 1w
+- **Chart Statistics**: Open, High, Low, Volume
+
+### Multi-Asset Support
+- **Stocks**: Real-time stock trading (NASDAQ, NYSE)
+- **Cryptocurrencies**: Bitcoin, Ethereum, Solana, and more
+- **Futures**: E-mini S&P 500, E-mini NASDAQ, Crude Oil, Gold
+- **Forex**: Major currency pairs (EUR/USD, GBP/USD, USD/JPY, etc.)
+
+### Trading Interface
+- **Order Types**: Market, Limit, Stop, Stop-Limit
+- **Time in Force**: Day, GTC, IOC, FOK
+- **Real-time Order Management**: Track pending, filled, and cancelled orders
+- **Account Summary**: Buying power, cash balance, portfolio value
+
+### Portfolio Management
+- **Position Tracking**: Real-time P&L for all positions
+- **Performance Metrics**: Daily, weekly, monthly, and yearly performance
+- **Multi-Asset Portfolio**: Stocks, crypto, and futures in one portfolio
+
+### Market Data
+- **Exchange Status**: Real-time status for NYSE, NASDAQ, CME, Binance, Coinbase, Kraken
+- **Market Categories**: Filter by Stocks, Crypto, Futures, Forex
+- **Market Indices**: S&P 500, Dow Jones, NASDAQ, Russell 2000
+- **Real-time Price Updates**: Live price feeds with change indicators
+
+### Mobile-First Design
+- **Touch Optimized**: Smooth touch interactions and gestures
+- **Bottom Navigation**: Easy access to all major features
+- **Responsive Layout**: Works on all screen sizes
+- **Dark Theme**: Professional dark interface for extended use
 
 ## Tech Stack
 
-- **Frontend**: React with TypeScript, Tailwind CSS
-- **Backend**: Node.js with Express
-- **AI Integration**: Multiple AI model support including GPT-5
-- **File Processing**: Support for various file formats
-- **Design**: Dark theme aesthetic inspired by zero365.com
+- **Frontend**: React 18 with TypeScript
+- **Charting**: TradingView Lightweight Charts
+- **Styling**: Custom CSS with mobile-first approach
+- **UI Components**: React Hot Toast for notifications
+- **State Management**: React Hooks
 
 ## Getting Started
 
@@ -51,22 +79,9 @@ npm install
 cd ..
 ```
 
-4. Install server dependencies:
-```bash
-cd server
-npm install
-cd ..
-```
-
 ### Running the Application
 
-1. Start the server:
-```bash
-cd server
-npm run dev
-```
-
-2. Start the client (in a new terminal):
+1. Start the client development server:
 ```bash
 cd client
 npm start
@@ -74,35 +89,123 @@ npm start
 
 The application will be available at `http://localhost:3000`.
 
-## Usage
+## Application Structure
 
-1. **Choose Input Method**: Select between URL analysis or file upload
-2. **Provide Input**: Enter a URL or upload your application files
-3. **Add Description**: Optionally describe what you want to achieve
-4. **Select AI Model**: Choose from Claude Opus 4.1, GPT-5, GPT-4, or Claude Sonnet
-5. **Analyze**: Click "Analyze Application" to get insights
-6. **Clone**: Use "Clone Application" to generate a downloadable clone
+```
+client/src/
+├── App.tsx                 # Main application component
+├── App.css                 # Global styles
+├── components/
+│   ├── Chart.tsx          # Real-time charting component
+│   ├── Trading.tsx        # Order placement interface
+│   ├── Watchlist.tsx      # Symbol watchlist
+│   ├── Portfolio.tsx      # Portfolio management
+│   └── Markets.tsx        # Market overview
+└── index.tsx              # Application entry point
+```
 
-## API Endpoints
+## Features in Detail
 
-- `POST /api/analyze-app` - Analyze an application
-- `POST /api/clone-app` - Generate application clone
-- `GET /api/download/:id` - Download generated clone
+### Charting System
+The charting system uses TradingView's Lightweight Charts library to provide professional-grade candlestick charts with:
+- Real-time price updates
+- Multiple timeframe support
+- Technical indicator overlays
+- Interactive chart controls
+- Touch-optimized interactions
 
-## Design Credits
+### Trading Interface
+Full-featured order placement with:
+- Buy/Sell order sides
+- Multiple order types (Market, Limit, Stop, Stop-Limit)
+- Quantity and price inputs
+- Order summary calculations
+- Order history tracking
+- Order cancellation
 
-- Interface design inspired by [zero365.com](https://zero365.com)
-- Dark theme aesthetic and typography patterns adapted from zero365.com
-- Minimalist, professional design approach following zero365.com principles
+### Exchange Integration
+The platform is designed to connect to multiple exchanges:
+- **Stock Exchanges**: NYSE, NASDAQ
+- **Futures Exchanges**: CME, NYMEX, COMEX
+- **Crypto Exchanges**: Binance, Coinbase, Kraken
+- Real-time exchange status monitoring
+- 24/7 crypto trading support
+
+### Algorithm Management
+The platform is built to support algorithmic trading with:
+- Multi-asset algorithm execution
+- Simultaneous crypto and futures trading
+- Real-time market data feeds
+- Order management for automated strategies
+
+## Future Enhancements
+
+### Planned Features
+- **WebSocket Integration**: Real-time market data streaming
+- **Advanced Order Types**: OCO, Bracket orders, trailing stops
+- **Market Depth**: Order book and DOM (Depth of Market)
+- **Price Alerts**: Customizable price notifications
+- **Backtesting**: Test trading strategies on historical data
+- **Risk Management**: Position sizing, stop-loss automation
+- **Multi-Account**: Support for multiple trading accounts
+- **Algorithm Builder**: Visual algorithm creation interface
+- **Paper Trading**: Practice trading with simulated money
+
+### Prop Firm Features
+The platform is being developed with prop firm capabilities in mind:
+- **Trader Management**: Multi-trader account support
+- **Performance Analytics**: Detailed trader statistics
+- **Risk Controls**: Per-trader risk limits and rules
+- **Profit Sharing**: Automated profit split calculations
+- **Compliance Tools**: Trade monitoring and reporting
+
+## Development
+
+### Building for Production
+
+```bash
+cd client
+npm run build
+```
+
+The build will create an optimized production bundle in the `build/` directory.
+
+### Testing
+
+```bash
+cd client
+npm test
+```
+
+## API Integration
+
+The app is designed to work with real-time market data APIs:
+- Stock data: Alpha Vantage, IEX Cloud, or Polygon.io
+- Crypto data: Binance WebSocket API, Coinbase Pro API
+- Futures data: CME DataMine or Interactive Brokers API
 
 ## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ## License
 
 This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Inspired by Sierra Chart's professional trading platform
+- Built with TradingView's Lightweight Charts library
+- Designed for mobile-first trading experience
+
+## Support
+
+For issues, questions, or contributions, please open an issue on GitHub.
+
+## Disclaimer
+
+This is a demo trading platform for educational purposes. Always conduct proper research and risk management before real trading. The creators are not responsible for any financial losses incurred through the use of this platform.
