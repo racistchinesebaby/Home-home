@@ -8,6 +8,7 @@
 import * as readline from 'readline';
 import * as chalk from 'chalk';
 import { TAMS } from '../core/index';
+import { createAICommands } from './ai-commands';
 
 const tams = new TAMS();
 
@@ -54,6 +55,9 @@ const commands: Record<string, Command> = {
       console.log();
       console.log(`  Agent: ${status.agent.running ? chalk.green('Running') : chalk.red('Stopped')}`);
       console.log(`  Tasks: ${status.agent.tasks}`);
+      console.log();
+      console.log(`  AI Assistants: ${status.ai.count}`);
+      console.log(`    ${status.ai.names.join(', ')}`);
       console.log();
       console.log(`  Uptime: ${Math.floor(status.system.uptime)}s`);
       console.log(`  Memory: ${status.system.memory.toFixed(2)} MB\n`);
@@ -327,6 +331,9 @@ const commands: Record<string, Command> = {
       process.exit(0);
     },
   },
+
+  // Merge AI commands
+  ...createAICommands(tams),
 };
 
 async function handleCommand(input: string): Promise<void> {

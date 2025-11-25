@@ -8,6 +8,7 @@ import { AppRegistry } from './registry';
 import { BackgroundAgent } from './agent';
 import { TuningEngine } from './tuning';
 import { AppStore } from './store';
+import { AIOrchestrator } from './ai/index';
 
 export interface AppMetadata {
   id: string;
@@ -30,6 +31,7 @@ export interface AppInstance {
   clone: (overrides?: Partial<AppMetadata>) => Promise<AppInstance>;
   update: () => Promise<void>;
   destroy: () => Promise<void>;
+  ai?: any; // AI capabilities for this app
 }
 
 export class TAMS extends EventEmitter {
@@ -38,6 +40,7 @@ export class TAMS extends EventEmitter {
   private tuning: TuningEngine;
   private store: AppStore;
   private apps: Map<string, AppInstance>;
+  public ai: AIOrchestrator; // Public AI system accessible to all apps
 
   constructor() {
     super();
@@ -46,6 +49,7 @@ export class TAMS extends EventEmitter {
     this.tuning = new TuningEngine();
     this.store = new AppStore();
     this.apps = new Map();
+    this.ai = new AIOrchestrator(this);
 
     this.initializeSystem();
   }
@@ -55,6 +59,9 @@ export class TAMS extends EventEmitter {
 
     // Load existing apps from registry
     await this.registry.load();
+
+    // Initialize AI subsystem
+    await this.ai.initialize();
 
     // Start background agent
     await this.agent.start();
@@ -233,6 +240,7 @@ export class TAMS extends EventEmitter {
   getStatus(): {
     apps: { total: number; byType: Record<string, number>; byStatus: Record<string, number> };
     agent: { running: boolean; tasks: number };
+    ai: { count: number; names: string[] };
     system: { uptime: number; memory: number };
   } {
     const apps = Array.from(this.apps.values()).map(a => a.metadata);
@@ -247,11 +255,33 @@ export class TAMS extends EventEmitter {
         running: this.agent.isRunning(),
         tasks: this.agent.getTaskCount(),
       },
+      ai: {
+        count: this.ai.getAllAIs().length,
+        names: this.ai.getAllAIs().map(ai => ai.getName()),
+      },
       system: {
         uptime: process.uptime(),
         memory: process.memoryUsage().heapUsed / 1024 / 1024,
       },
     };
+  }
+
+  /**
+   * Chat with AI
+   */
+  async chatWithAI(aiId: string, message: string, context?: any): Promise<any> {
+    return await this.ai.chat(aiId, message, {
+      conversationHistory: [],
+      capabilities: [],
+      ...context,
+    });
+  }
+
+  /**
+   * Get all AIs
+   */
+  getAIs(): any[] {
+    return this.ai.getAllAIs();
   }
 
   // Helper methods
@@ -294,8 +324,13 @@ export class TAMS extends EventEmitter {
   async shutdown(): Promise<void> {
     console.log('🛑 Shutting down TAMS...');
 
+    // Shutdown AI subsystem
+    await this.ai.shutdown();
+
+    // Stop background agent
     await this.agent.stop();
 
+    // Destroy all apps
     for (const app of this.apps.values()) {
       await app.destroy();
     }
