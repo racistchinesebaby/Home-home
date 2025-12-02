@@ -1,0 +1,52 @@
+Example Web Wallets Document
+============================
+
+This is an example document showing how to format wallet information.
+The parser can understand multiple formats.
+
+Format 1: Labeled Format
+------------------------
+URL: https://wallet1.example.com/login
+Username: user1@example.com
+Password: password123
+
+URL: https://wallet2.example.com/dashboard
+Username: testuser2
+Password: securepass456
+
+Format 2: Simple Line Format
+----------------------------
+https://wallet3.example.com user3@example.com pass789
+https://wallet4.example.com testuser4 mypassword321
+
+Format 3: Structured Format
+---------------------------
+Website: https://metamask.io
+User: crypto_user@example.com
+Pass: eth123456
+
+Link: https://blockchain.com/wallet
+Email: blockchain_user@example.com
+Password: btc789012
+
+Format 4: Compact Format
+-----------------------
+https://coinbase.com/signin
+coinbase_user
+coinbase_pass123
+
+https://binance.com/en/login
+binance_user
+binance_secure456
+
+
+Instructions:
+------------
+1. Upload this document using the "Upload Document" button
+2. The system will automatically parse and extract wallet information
+3. Each wallet will appear in the list with its URL, username, and initial value of $0
+4. You can manually update values or use the "Fetch Value" button to attempt automatic login
+5. Select multiple wallets and use the Add/Subtract buttons to perform calculations
+6. Click on wallet URLs to open them in a new tab
+
+Note: For security, always use test credentials when testing this feature!

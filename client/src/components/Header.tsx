@@ -11,6 +11,7 @@ const Header: React.FC = () => {
         <nav className="nav">
           <Link to="/" className="nav-link">Clone App</Link>
           <Link to="/projects" className="nav-link">Projects</Link>
+          <Link to="/wallet-calculator" className="nav-link">Wallet Calculator</Link>
         </nav>
       </div>
     </header>

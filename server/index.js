@@ -6,6 +6,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const archiver = require('archiver');
 const unzipper = require('unzipper');
+const walletRoutes = require('./routes/wallet');
 
 dotenv.config();
 
@@ -18,6 +19,9 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+
+// Wallet routes
+app.use('/api/wallet', walletRoutes);
 
 const upload = multer({ 
   dest: 'uploads/',

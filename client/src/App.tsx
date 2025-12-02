@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import Header from './components/Header';
 import CloneInterface from './components/CloneInterface';
 import ProjectView from './components/ProjectView';
+import WalletCalculator from './components/WalletCalculator';
 import './App.css';
 
 interface Project {
@@ -38,23 +39,27 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
-            <Route 
-              path="/" 
+            <Route
+              path="/"
               element={
-                <CloneInterface 
+                <CloneInterface
                   onProjectCreated={handleProjectCreated}
                   onProjectUpdated={handleProjectUpdated}
                 />
-              } 
+              }
             />
-            <Route 
-              path="/project/:id" 
+            <Route
+              path="/project/:id"
               element={
-                <ProjectView 
+                <ProjectView
                   project={currentProject}
                   onProjectUpdated={handleProjectUpdated}
                 />
-              } 
+              }
+            />
+            <Route
+              path="/wallet-calculator"
+              element={<WalletCalculator />}
             />
           </Routes>
         </main>
